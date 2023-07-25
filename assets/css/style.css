@@ -517,7 +517,8 @@ color: #e21221;
 
   #hero .container,
   #hero .container-fluid {
-    padding-top: 68px;
+   /* padding-top: 68px;*/
+    padding-top: 30px;
   }
 
   #hero .animated {
@@ -666,6 +667,17 @@ section {
   color: #fff;
 }
 
+
+.btn {
+  color: #fff;
+  border-color: #fff;
+}
+
+.btn:hover {
+  color: #fff;
+  background-color: #e21221;
+  border-color: #e21221;
+}
 
 
 
