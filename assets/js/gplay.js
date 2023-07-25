@@ -36,11 +36,11 @@ function leave2(x) {
 }
 
 function olinkgplay(x) {
-    Window.open("https://play.google.com/store/apps/details?id=com.phantomsolutions.wikimedia");
+    open("https://play.google.com/store/apps/details?id=com.phantomsolutions.wikimedia");
     
 }
 function olinktele(x) {
-    Window.open("https://t.me/wiki_media_main");
+    open("https://t.me/wiki_media_main");
 }
 
 const d = new Date();
