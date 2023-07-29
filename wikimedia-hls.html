@@ -101,15 +101,40 @@
     <section class="inner-page" style="background: #1f212a;">
       <div class="container">
         
-                    <span>
-                        <center>   <p id="href"></p> </center>
-                    </span>
-                    <h3><center>
-                    
-                        <video id="video" class="video-js vjs-default-skin vjs-big-play-centered" 
-                        controls preload="none" width="675" height="360" poster="" data-setup="{}">
-                            <source src="" type='video/mp4' />
-                        </video> <br> <br>
+        <tr>
+          <td style="background-color:#181A20; /* #621616 #181A20 */
+          color:#fff;padding:30px;font-size:11pt;border-radius:10px">
+                  <h2><center>HLS WikiMedia</center></h2>
+                  <span>
+                      <center>   <p id="href"></p> </center>
+                  </span>
+                  <h3><center>
+                  
+                      <video id="video" class="video-js vjs-default-skin vjs-big-play-centered" 
+                      controls preload="none" width="675" height="360" poster="" data-setup="{}">
+                          <source src="" type='video/mp4' />
+                      </video> <br> <br>
+                     <!--  <input id="inputt" value="" style="width: 675px;"/><br><br>
+                     <button class="source" id="source_one" onclick="chnageToSourceTwo()" style="font-family:'Google Sans',Roboto,RobotoDraft,
+              Helvetica,Arial,sans-serif;line-height:16px;color:#ffffff;font-weight:400;
+              text-decoration:none;font-size:14px;display:inline-block;padding:10px 24px;
+              background-color:#e21221;border-radius:5px;min-width:90px;border-color: #e21221;"
+               >Confirmar su url</button>
+
+               <button class="source" id="clean" onclick="clean()" style="font-family:'Google Sans',Roboto,RobotoDraft,
+              Helvetica,Arial,sans-serif;line-height:16px;color:#ffffff;font-weight:400;
+              text-decoration:none;font-size:14px;display:inline-block;padding:10px 24px;
+              background-color:#e21221;border-radius:5px;min-width:90px;border-color: #e21221;"
+               >Limpiar Texto</button>-->
+                  
+      <div>
+          
+      </div>
+      <p>
+               
+      </p>
+          </td>
+      </tr>
       </div>
     </section>
 
@@ -214,35 +239,31 @@
 <script src="assets/js/main.js"></script>
 <script src="assets/js/gplay.js"></script>
 
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1">
+</script>
+ 
+<script>  
+
+var text = document.getElementById("video").innerHTML ="" + location;
+var videoSrc = document.getElementById("href").innerHTML = text.replace("https://wikimediapp.github.io/website/wikimedia-hls.html?urlvideo=", "");
+
+
+if (Hls.isSupported()) {
+  var hls = new Hls();
+  hls.loadSource(videoSrc);
+  hls.attachMedia(video);
+}
+else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+  video.src = videoSrc;
+} 
+
 </script>
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
     class="bi bi-arrow-up-short"></i></a>
 
 
-    <script>
-
-        /**
-   * Scroll with ofset on page load with hash links in the url
-   */
-  window.addEventListener('load', () => {
-    if (window.location.hash) {
-      if (select(window.location.hash)) {
-        scrollto(window.location.hash)
-      }
-    }
-  });
-
-  /**
-   * Preloader
-   */
-  let preloader = select('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-     preloader.remove()
-    });
-  }
-    </script>
+   
 
 
 </body>
