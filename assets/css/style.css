@@ -11,7 +11,7 @@
 --------------------------------------------------------------*/
 body {
   font-family: "Open Sans", sans-serif;
-  color: #444444;
+  color: #fff;
 }
 
 a {
@@ -135,6 +135,8 @@ h6 {
   z-index: 997;
   padding: 20px 0;
 }
+
+
 
 #header.header-scrolled,
 #header.header-inner-pages {
@@ -1623,7 +1625,7 @@ section {
 .breadcrumbs ol li+li::before {
   display: inline-block;
   padding-right: 10px;
-  color: #3c6387;
+  color: #fff;
   content: "/";
 }
 

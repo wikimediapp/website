@@ -35,11 +35,11 @@ function leave2(x) {
     document.getElementById("iconsvg").style.transition = "0.5s";
 }
 
-function olinkgplay(x) {
+function olinkgplay() {
     open("https://play.google.com/store/apps/details?id=com.phantomsolutions.wikimedia");
     
 }
-function olinktele(x) {
+function olinktele() {
     open("https://t.me/wiki_media_main");
 }
 
