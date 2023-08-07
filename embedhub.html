@@ -106,18 +106,19 @@
 
   <script>  
     function getUrl() {
-      return new Promise((resolve, reject) => {
-        var url = document.getElementById("video").innerHTML ="" + location;
-        console.log(url);
-        var urlParams = new URLSearchParams(url.split('?')[1]);
-        var urlvideoCodificado = urlParams.get('urlvideo');
-        var urlvideoDecodificado = atob(urlvideoCodificado); 
-         document.getElementById("video").src = urlvideoDecodificado ;
-        console.log(urlvideoDecodificado);        
-        console.log("Función 1 ejecutada");
-        resolve();
-      });
-    }    
+  return new Promise((resolve, reject) => {
+    var url = location.href;
+    var urlParams = new URLSearchParams(url.split('?')[1]);
+    var urlvideoCodificado = urlParams.get('urlvideo');
+    try {
+      var urlvideoDecodificado = atob(urlvideoCodificado); 
+      document.getElementById("video").src = urlvideoDecodificado ;
+      resolve();
+    } catch (error) {
+      reject(error);
+    }
+  });
+}   
     getUrl()
       .catch((error) => {
         console.error("Ocurrió un error:", error);
