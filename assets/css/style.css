@@ -87,7 +87,7 @@ h6 {
   bottom: 0;
   z-index: 9999;
   overflow: hidden;
-  background: #1F202A;
+  background: #181A20;
 }
 
 #preloader:before {
@@ -96,7 +96,7 @@ h6 {
   top: calc(75% - 30px);
   left: calc(50% - 30px);
   border: 6px solid #E21221;
-  border-top-color: #1F202A;
+  border-top-color: #181A20;
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -140,7 +140,7 @@ h6 {
 
 #header.header-scrolled,
 #header.header-inner-pages {
-  background: #1f212abe;
+  background: #181A20be;
   padding: 12px 0;
 }
 
@@ -457,7 +457,7 @@ color: #e21221;
 #hero {
   width: 100%;
   height: 100vh;
-  background: #1F212A;
+  background: #181A20;
   background-size: cover;
 }
 
@@ -699,11 +699,11 @@ section {
   position: relative;
 }
 
-#icon-demo {
- /* transition: all .2s ease-in-out;*/
+/*#icon-demo {
+ /* transition: all .2s ease-in-out;
 
   
-}
+}*/
 
 #icon-demo:hover {
   fill:#fff;
@@ -739,7 +739,7 @@ section {
 
 .about {
   padding: 120px 0;
-  background-color: #1f212a;
+  background-color: #181A20;
 }
 
 .about .content h3 {
@@ -1650,7 +1650,7 @@ section {
   color: #fff;
   font-size: 14px;
   /*background: linear-gradient(45deg, rgba(86, 58, 250, 0.9) 0%, rgba(116, 15, 214, 0.9) 100%), url("../img/hero-bg.jpg") center center no-repeat;*/
-  background: #1f212a;
+  background: #181A20;
   background-size: cover;
 }
 
