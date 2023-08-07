@@ -95,7 +95,8 @@
 
     <section class="inner-page" style="background: #181A20;">
       <div class="container">
-        <p id="href" style="display: none;"></p>
+        <p id="href" style="display: flex;"></p>
+        <p id="href2" style="display: flex;"></p>
         <div class="ratio ratio-4x3">
             <iframe id="video" src="" title="" allowfullscreen scrolling="no"></iframe>
         </div>
@@ -104,32 +105,20 @@
   </main><!-- End #main -->
 
   <script>  
-    // https://wikimediapp.github.io/website/embedhub.html?urlvideo=https://v1.embedhub.xyz/e/667538?image=https://wikimediapp.github.io/website/assets/img/logo.svg   
-    // ejecutar varias funciones ordenada javascript
-    // http://127.0.0.1:5501/embedhub.html?urlvideo=https://v1.embedhub.xyz/e/667538   
-    // https://wikimediapp.github.io/website/embedhub.html?urlvideo=https://v1.embedhub.xyz/e/667538         
     function getUrl() {
       return new Promise((resolve, reject) => {
-        // Tomar url actual
-         url = document.getElementById("video").innerHTML ="" + location;
+        var url = document.getElementById("video").innerHTML ="" + location;
+        console.log(url);
+        var urlParams = new URLSearchParams(url.split('?')[1]);
+        var urlvideoCodificado = urlParams.get('urlvideo');
+        var urlvideoDecodificado = atob(urlvideoCodificado); 
+         document.getElementById("video").src = urlvideoDecodificado ;
+        console.log(urlvideoDecodificado);        
         console.log("Función 1 ejecutada");
         resolve();
       });
     }    
-    function replaceUrlSrc() {
-      return new Promise((resolve, reject) => {
-        // replace url y replace src
-         videoSrc = document.getElementById("href").innerHTML 
-                = url.replace("https://wikimediapp.github.io/website/embedhub.html?urlvideo=", "");
-    
-                document.getElementById("video").src = videoSrc;     
-        console.log("Función 2 ejecutada");
-        resolve();
-      });
-    }   
-    // Llamadas en orden
     getUrl()
-      .then(() => replaceUrlSrc())
       .catch((error) => {
         console.error("Ocurrió un error:", error);
       });   
