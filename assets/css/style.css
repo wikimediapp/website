@@ -136,6 +136,13 @@ h6 {
   padding: 20px 0;
 }
 
+#header-embed {
+  transition: all 0.5s;
+  z-index: 997;
+  padding: 20px 0;
+  
+}
+
 
 
 #header.header-scrolled,
@@ -144,7 +151,24 @@ h6 {
   padding: 12px 0;
 }
 
+#header-embed.header-scrolled,
+#header-embed.header-inner-pages {
+  background: #181A20be;
+  padding: 12px 0;
+ /* display: none; ok */
+  
+}
+
 #header .logo {
+  font-size: 32px;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+#header-embed .logo {
   font-size: 32px;
   margin: 0;
   padding: 0;
@@ -160,6 +184,12 @@ h6 {
 #header .logo a:hover {
   color: #e21221;  
   
+}#header-embed .logo a {
+  color: #e21221;  
+}
+#header-embed .logo a:hover {
+  color: #e21221;  
+  
 }
 
 #header .logo img {
@@ -168,6 +198,13 @@ h6 {
 }
 
 #header .logo img:hover { transform: scale(1.1); }
+
+#header-embed .logo img {
+  max-height: 40px;
+  transition: all .2s ease-in-out;
+}
+
+#header-embed .logo img:hover { transform: scale(1.1); }
 
 /*--------------------------------------------------------------
 # Navigation Menu
@@ -579,7 +616,7 @@ color: #e21221;
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 100px 0;
+  padding: 0px 0;
   overflow: hidden;
 }
 

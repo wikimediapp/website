@@ -95,6 +95,61 @@
     onscroll(document, headerScrolled)
   }
 
+
+  /** edit Ghost_KNA
+   * Navbar links active state on scroll
+   */
+  let navbarlinks2 = select('#navbar .scrollto2', true)
+  const navbarlinksActive2 = () => {
+    let position = window.scrollY + 200
+    navbarlinks2.forEach(navbarlinks2 => {
+      if (!navbarlink.hash) return
+      let section = select(navbarlink2.hash)
+      if (!section) return
+      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+        navbarlink2.classList.add('active')
+      } else {
+        navbarlink2.classList.remove('active')
+      }
+    })
+  }
+  window.addEventListener('load', navbarlinksActive2)
+  onscroll(document, navbarlinksActive2)
+
+  /** edit Ghost_KNA
+   * Scrolls to an element with header offset
+   */
+  const scrollto2 = (el) => {
+    let header = select('#header-embed')
+    let offset = header.offsetHeight
+
+    if (!header.classList.contains('header-scrolled')) {
+      offset -= 16
+    }
+
+    let elementPos = select(el).offsetTop
+    window.scrollTo2({
+      top: elementPos - offset,
+      behavior: 'smooth'
+    })
+  }
+
+  /**
+   * Toggle .header-scrolled class to #header when page is scrolled
+   */
+  let selectHeader2 = select('#header-embed')
+  if (selectHeader2) {
+    const headerScrolled = () => {
+      if (window.scrollY > 100) {
+        selectHeader2.classList.add('header-scrolled')
+      } else {
+        selectHeader2.classList.remove('header-scrolled')
+      }
+    }
+    window.addEventListener('load', headerScrolled)
+    onscroll(document, headerScrolled)
+  }
+
   /**
    * Back to top button
    */

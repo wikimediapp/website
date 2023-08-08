@@ -4,9 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
 
-  <title>WikiMedia Website - EmbedHub</title>
+  <title>WikiMedia Website - Pluto TV</title>
   <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -28,13 +27,19 @@
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
-
+  <!-- =======================================================
+  * Template Name: Techie
+  * Updated: May 30 2023 with Bootstrap v5.3.0
+  * Template URL: https://bootstrapmade.com/techie-free-skin-bootstrap-3/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
 </head>
 
 <body style="background: #181A20;">
 
   <!-- ======= Header ======= -->
-  <header id="header-embed" class="fixed-top">
+  <header id="header" class="fixed-top header-inner-pages">
     <div class="container d-flex align-items-center justify-content-between">
       <!-- Uncomment below if you prefer to use an image logo -->
       <a href="index.html" class="logo"><img src="assets/img/logo.svg" alt="" class="img-fluid"></a>
@@ -43,9 +48,9 @@
 
       <nav id="navbar" class="navbar">
           <ul>
-              <li><a class="nav-link scrollto2 active" href="index.html#hero">Home</a></li>
-             <!-- <li><a class="nav-link scrollto" href="inner-page.html">inner page</a></li>
-              <li><a class="nav-link scrollto" href="#services">Services</a></li>
+              <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+              <li><a class="nav-link scrollto" href="wikimedia-hls.html">Hls Page</a></li>
+              <!--<li><a class="nav-link scrollto" href="#services">Services</a></li>
               <li><a class="nav-link scrollto " href="#portfolio">Portfolio-detalles</a></li>
               <li><a class="nav-link scrollto " href="portfolio-details.html">Portfolio</a></li>
               <li><a class="nav-link scrollto" href="#team">Team</a></li> 
@@ -68,7 +73,7 @@
                   </ul>
               </li> 
               <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
-              <li><a class="getstarted scrollto2" href="index.html#about">Descarga</a></li>
+              <li><a class="getstarted scrollto" href="#about">Descarga</a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -83,10 +88,10 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2 style="color:#fff ;">EmbedHub</h2>
+          <h2 style="color:#fff ;">Hls Page</h2>
           <ol>
             <li><a href="index.html">Home</a></li>
-            <li>EmbedHub</li>
+            <li>Hls Page</li>
           </ol>
         </div>
 
@@ -95,35 +100,45 @@
 
     <section class="inner-page" style="background: #181A20;">
       <div class="container">
-       <!-- <p id="href" style="display: flex;"></p>
-        <p id="href2" style="display: flex;"></p>-->
-        <div class="ratio ratio-4x3">
-            <iframe id="video" src="" title="" allowfullscreen scrolling="no"></iframe>
-        </div>
+        
+        <tr>
+          <td style="background-color:#181A20; /* #621616 #181A20 */
+          color:#fff;padding:30px;font-size:11pt;border-radius:10px">
+                  <h2><center>HLS WikiMedia</center></h2>
+                  <span>
+                      <center>   <p id="href"></p> </center>
+                  </span>
+                  <h3><center>
+                  
+                      <video id="video" class="video-js vjs-default-skin vjs-big-play-centered" 
+                      controls preload="none" width="675" height="360" poster="" data-setup="{}">
+                          <source src="" type='video/mp4' />
+                      </video> <br> <br>
+                     <!--  <input id="inputt" value="" style="width: 675px;"/><br><br>
+                     <button class="source" id="source_one" onclick="chnageToSourceTwo()" style="font-family:'Google Sans',Roboto,RobotoDraft,
+              Helvetica,Arial,sans-serif;line-height:16px;color:#ffffff;font-weight:400;
+              text-decoration:none;font-size:14px;display:inline-block;padding:10px 24px;
+              background-color:#e21221;border-radius:5px;min-width:90px;border-color: #e21221;"
+               >Confirmar su url</button>
+
+               <button class="source" id="clean" onclick="clean()" style="font-family:'Google Sans',Roboto,RobotoDraft,
+              Helvetica,Arial,sans-serif;line-height:16px;color:#ffffff;font-weight:400;
+              text-decoration:none;font-size:14px;display:inline-block;padding:10px 24px;
+              background-color:#e21221;border-radius:5px;min-width:90px;border-color: #e21221;"
+               >Limpiar Texto</button>-->
+                  
+      <div>
+          
+      </div>
+      <p>
+               
+      </p>
+          </td>
+      </tr>
       </div>
     </section>
-  </main><!-- End #main -->
 
-  <script>  
-    function getUrl() {
-  return new Promise((resolve, reject) => {
-    var url = location.href;
-    var urlParams = new URLSearchParams(url.split('?')[1]);
-    var urlvideoCodificado = urlParams.get('urlvideo');
-    try {
-      var urlvideoDecodificado = atob(urlvideoCodificado); 
-      document.getElementById("video").src = urlvideoDecodificado ;
-      resolve();
-    } catch (error) {
-      reject(error);
-    }
-  });
-}   
-    getUrl()
-      .catch((error) => {
-        console.error("Ocurrió un error:", error);
-      });   
-    </script>
+  </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
 <footer id="footer">
@@ -191,7 +206,7 @@
           <div class="social-links text-center text-md-right pt-3 pt-md-0">
              <!-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>-->
               
-              <!-- <a href="https://github.com/Phantom-KNA/" class="github"><i class="bi bi-github"></i></a>-->
+            <!--  <a href="https://github.com/Phantom-KNA/" class="github"><i class="bi bi-github"></i></a>-->
               <a href="https://play.google.com/store/apps/details?id=com.phantomsolutions.wikimedia" class="play-store"><i class="bx bxl-play-store"></i></a>
               <a href="https://chat.whatsapp.com/BibdxaZN1M9HCVat7gfKPS" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
               <a href="https://t.me/wiki_media_main" class="telegram"><i class="bx bxl-telegram"></i></a>
@@ -223,6 +238,38 @@
 <!-- Template Main JS File -->
 <script src="assets/js/main.js"></script>
 <script src="assets/js/gplay.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/hls.js@1">
+</script>
+<script src="assets/js/webmonkey.js">
+</script>
+ 
+<script>  
+
+var text = document.getElementById("video").innerHTML ="" + location;
+var videoSrc = document.getElementById("href").innerHTML = 
+text.replace("https://wikimediapp.github.io/website/wikimedia-hls.html?urlvideo=", "");
+
+
+if (Hls.isSupported()) {
+  var hls = new Hls();
+  hls.loadSource(videoSrc);
+  hls.attachMedia(video);
+}
+else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+  video.src = videoSrc;
+} 
+
+</script>
+
+
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+    class="bi bi-arrow-up-short"></i></a>
+
+
+   
+
 
 </body>
 
