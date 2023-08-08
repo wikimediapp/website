@@ -71,6 +71,7 @@
               <li><a class="getstarted scrollto2" href="index.html#about">Descarga</a></li>
           </ul>
           <i class="bi bi-list mobile-nav-toggle"></i>
+          
       </nav><!-- .navbar -->
 
   </div>
@@ -83,24 +84,59 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2 style="color:#fff ;">EmbedHub</h2>
+          <center> <h1 style="color:#fff ;">Reproductor 
+            <span class="play-store">
+              <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="#e21221" class="bi bi-play-btn-fill" viewBox="0 0 16 16">
+                <path d="M0 12V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm6.79-6.907A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z"/>
+              </svg>
+            </span>
+          </h1>
+            
+          </center>
           <ol>
-            <li><a href="index.html">Home</a></li>
-            <li>EmbedHub</li>
+            <center>
+         <li style="color: #e21221;"> 
+          <span style="color: #fff;" id="id-video" style="margin-left: 3px;"></span>
+          <span style="color: #fff;" id="id-temp"></span>
+          <span style="color: #fff;" id="id-cap"></span> 
+        </li> 
+      </center>
           </ol>
         </div>
 
       </div>
     </section><!-- End Breadcrumbs -->
 
-    <section class="inner-page" style="background: #181A20;">
-      <div class="container">
+    <div class="container text-center">
+      <div class="row">
+      </div>
+      <div class="row">
+        <div class="col">          
+        </div>
+        <div class="col">          
+        </div>
+        <div class="col" style="padding-right: calc(var(--bs-gutter-x) * .0);">
+          <a class="reload-btn" href="embedhub.html">
+            <i class="bi bi-arrow-counterclockwise"></i>
+        </a>
+        </div>
+      </div>
+    </div>
+
+    <section class="inner-page" style="background: #181A20; padding-top: 5px;
+    padding-right: 0px;
+    padding-bottom: 95px;
+    padding-left: 0px;">
+      <div class="container" style="background: #fff;">
        <!-- <p id="href" style="display: flex;"></p>
         <p id="href2" style="display: flex;"></p>-->
         <div class="ratio ratio-4x3">
             <iframe id="video" src="" title="" allowfullscreen scrolling="no"></iframe>
-        </div>
+        </div>   
       </div>
+      <div class="container mt-3">
+        
+       </div>
     </section>
   </main><!-- End #main -->
 
@@ -109,20 +145,46 @@
   return new Promise((resolve, reject) => {
     var url = location.href;
     var urlParams = new URLSearchParams(url.split('?')[1]);
-    var urlvideoCodificado = urlParams.get('urlvideo');
+    var link0 = urlParams.get('urlvideo');
     try {
-      var urlvideoDecodificado = atob(urlvideoCodificado); 
-      document.getElementById("video").src = urlvideoDecodificado ;
+      var link6 = atob(link0); 
+      document.getElementById("video").src = link6;
+      var urlID = link6; 
+      var regex = /\/(\d+-\d+-\d+)\//;
+      var matches = urlID.match(regex);
+      var numero = matches[1];
+      var numeroSeparado = numero.split("-");
+      console.log(numeroSeparado);   
+      const link5 = numeroSeparado;
+      const link1 = "YXBpX2tleT0wMWE5M2U4OTM1NjcxMjZkYzIyNDRiNGVlZTllNjVlNg";
+      const link3 = "aHR0cHM6Ly9hcGkudGhlbW92aWVkYi5vcmcvMy90di8";
+      const link2 = atob(link1);
+      const link4 = atob(link3);
+      fetch(`${link4}${link5}?${link2}`)
+      .then(response => response.json())
+      .then(data => {
+      const nombreSerie = data.name;
+      var spanVideo = document.getElementById("id-video");
+      spanVideo.textContent = nombreSerie;
+      var spanCap = document.getElementById("id-temp");
+      spanCap.textContent = "(T" + numeroSeparado[1];
+      var spanCap = document.getElementById("id-cap");
+      spanCap.textContent = "- E" + numeroSeparado[2] + ")" ;
+  })
+  .catch(error => {
+    console.error('Ocurrió un error 2:', error);
+  });
       resolve();
     } catch (error) {
       reject(error);
     }
   });
-}   
-    getUrl()
+}     
+getUrl()
+      //.then(() => getID())
       .catch((error) => {
         console.error("Ocurrió un error:", error);
-      });   
+      });     
     </script>
 
   <!-- ======= Footer ======= -->

@@ -67,6 +67,39 @@ h6 {
 }
 
 /*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.reload-btn {
+  background: #b00d19;
+  width: 40px;
+  height:40px;
+  border-radius: 4px;
+  transition: all 0.4s;
+  color: #fff;
+  /*position: absolute;*/
+  position: static;
+  z-index: 996;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important; right: 20px;
+  margin-left: 130px;
+}
+
+.reload-btn i {
+  font-size: 28px;
+  color: #181A20;
+  line-height: 0;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.reload-btn:hover {
+  background: #e21221;
+  color: #fff;
+}
+
+
+/*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
 .img-preloader {
@@ -616,7 +649,7 @@ color: #e21221;
 # Sections General
 --------------------------------------------------------------*/
 section {
-  padding: 50px 0;
+  padding: 100px 0; /* default padding: 100px 0;*/
   overflow: hidden;
 }
 
