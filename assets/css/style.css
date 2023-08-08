@@ -71,7 +71,7 @@ h6 {
 --------------------------------------------------------------*/
 .reload-btn {
   background: #b00d19;
-  width: 40px;
+  width: 100px;
   height:40px;
   border-radius: 4px;
   transition: all 0.4s;
@@ -82,7 +82,7 @@ h6 {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important; right: 20px;
-  margin-left: 130px;
+  margin-left: 0px;
 }
 
 .reload-btn i {
