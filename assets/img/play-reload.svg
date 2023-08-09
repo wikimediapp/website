@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="19.708181mm"
+   height="19.532398mm"
+   viewBox="0 0 19.708182 19.532398"
+   version="1.1"
+   id="svg13228"
+   sodipodi:docname="logo.svg"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview13230"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="5.7299663"
+     inkscape:cx="262.65425"
+     inkscape:cy="486.65208"
+     inkscape:window-width="1920"
+     inkscape:window-height="991"
+     inkscape:window-x="-9"
+     inkscape:window-y="-9"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs13225" />
+  <g
+     inkscape:label="Capa 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-65.224839,-120.14782)"
+     style="display:inline">
+    <path
+       d="m 81.331674,122.24156 v -1.67499 a 0.44439617,0.41874613 0 0 1 0.444396,-0.41875 h 2.666378 a 0.44439617,0.41874613 0 0 1 0.444395,0.41875 v 1.67499 a 0.44439617,0.41874613 0 0 1 -0.444395,0.41874 H 81.77607 a 0.44439617,0.41874613 0 0 1 -0.444396,-0.41874 z m 1.508728,-1.44614 a 0.11109904,0.10468654 0 0 0 -0.175542,0.0852 v 1.04687 a 0.11109904,0.10468654 0 0 0 0.175542,0.0852 l 0.777689,-0.52344 a 0.11109904,0.10468654 0 0 0 0,-0.17043 z"
+       id="path2"
+       style="fill:#e21221;fill-opacity:1;stroke-width:0.21569" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:2.36643px;font-family:Poppins;-inkscape-font-specification:'Poppins Bold';fill:#ffffff;fill-opacity:1;stroke-width:0.0986012"
+       x="63.122971"
+       y="125.62791"
+       id="text251"
+       transform="scale(1.030172,0.97071168)"><tspan
+         sodipodi:role="line"
+         id="tspan249"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Poppins;-inkscape-font-specification:'Poppins Bold';fill:#ffffff;fill-opacity:1;stroke-width:0.0986012"
+         x="63.122971"
+         y="125.62791">Reproductor</tspan></text>
+  </g>
+</svg>
