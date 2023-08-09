@@ -114,10 +114,9 @@ h6 {
 .img-preloader2 {
   content: "";
   position: fixed;
-  top: calc(65% - 30px);
+  top: calc(30% - 30px);
   left: calc(50% - 100px); 
-  width: calc(50% - center);
-  height: 200px;
+  height: 250px;
 }
 
 

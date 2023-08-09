@@ -119,22 +119,22 @@
         </div>
         <div class="col" style="padding-right: calc(var(--bs-gutter-x) * .5);
         padding-left: calc(var(--bs-gutter-x) * .0);">
-          <a class="reload-btn" href="embedhub.html">
+          <a class="reload-btn" href="">
             <i class="bi bi-arrow-counterclockwise"></i>
         </a>
         </div>
       </div>
     </div>
 
-    <section class="inner-page" style="background: #181A20; padding-top: 5px;
+    <section class="inner-page" style="background: #181A20; color:#fff; padding-top: 5px;
     padding-right: 0px;
     padding-bottom: 0px;
     padding-left: 0px;">
       <div class="container">
        <!-- <p id="href" style="display: flex;"></p>
         <p id="href2" style="display: flex;"></p>-->
-        <div class="ratio ratio-4x3" style="background-color: #fff;">
-            <iframe id="video" src="" title="" allowfullscreen scrolling="no"></iframe>
+        <div class="ratio ratio-4x3">
+            <iframe style="border-radius: 4px;" id="video" src="" title="" allowpaymentrequest="" allowfullscreen scrolling="yes"></iframe>
         </div>   
       </div>
       <div class="container mt-3">
@@ -149,6 +149,7 @@
     var url = location.href;
     var urlParams = new URLSearchParams(url.split('?')[1]);
     var link0 = urlParams.get('urlvideo');
+    
     try {
       var link6 = atob(link0); 
       document.getElementById("video").src = link6;
@@ -173,6 +174,7 @@
       spanCap.textContent = "(T" + numeroSeparado[1];
       var spanCap = document.getElementById("id-cap");
       spanCap.textContent = "- E" + numeroSeparado[2] + ")" ;
+      document.getElementById("reload-btn").href = location.href;
   })
   .catch(error => {
     console.error('Ocurrió un error 2:', error);
@@ -255,7 +257,8 @@ getUrl()
           </div>
           <div class="social-links text-center text-md-right pt-3 pt-md-0">
              <!-- <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>-->
-              
+              <img src="assets/img/tmdb-logo.svg" style="margin-bottom: 15px;width: 220px;">
+              <br>
               <!-- <a href="https://github.com/Phantom-KNA/" class="github"><i class="bi bi-github"></i></a>-->
               <a href="https://play.google.com/store/apps/details?id=com.phantomsolutions.wikimedia" class="play-store"><i class="bx bxl-play-store"></i></a>
               <a href="https://chat.whatsapp.com/BibdxaZN1M9HCVat7gfKPS" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
@@ -272,10 +275,10 @@ getUrl()
 
 <!-- Reload Web    -->    
   <div id="preloader">  
-  <img src="assets/img/logo.svg" class="img-preloader">
-  <img src="assets/img/play-reload.svg" class="img-preloader2">
+  <img src="assets/img/logo+play.svg" class="img-preloader2">
+  <!--<img src="assets/img/logo+play.svg" class="img-preloader2">
   
-    
+    -->
    
           
   </div> 
