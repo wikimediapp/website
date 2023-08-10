@@ -143,53 +143,77 @@
     </section>
   </main><!-- End #main -->
 
-  <script>  
+  <script>
     function getUrl() {
-  return new Promise((resolve, reject) => {
-    var url = location.href;
-    var urlParams = new URLSearchParams(url.split('?')[1]);
-    var link0 = urlParams.get('urlvideo');
-    //
-    try {
-      var link6 = atob(link0); 
-      document.getElementById("video").src = link6;
-      var urlID = link6; 
-      var regex = /\/(\d+-\d+-\d+)\//;
-      var matches = urlID.match(regex);
-      var numero = matches[1];
-      var numeroSeparado = numero.split("-");
-      console.log(numeroSeparado);   
-      const link5 = numeroSeparado;
-      const link1 = "YXBpX2tleT0wMWE5M2U4OTM1NjcxMjZkYzIyNDRiNGVlZTllNjVlNg";
-      const link3 = "aHR0cHM6Ly9hcGkudGhlbW92aWVkYi5vcmcvMy90di8";
-      const link2 = atob(link1);
-      const link4 = atob(link3);
-      fetch(`${link4}${link5}?${link2}`)
-      .then(response => response.json())
-      .then(data => {
-      const nombreSerie = data.name;
-      var spanVideo = document.getElementById("id-video");
-      spanVideo.textContent = nombreSerie;
-      var spanCap = document.getElementById("id-temp");
-      spanCap.textContent = "(T" + numeroSeparado[1];
-      var spanCap = document.getElementById("id-cap");
-      spanCap.textContent = "- E" + numeroSeparado[2] + ")" ;
-      document.getElementById("reload-btn").href = location.href;
-  })
-  .catch(error => {
-    console.error('Ocurrió un error 2:', error);
-  });
-      resolve();
+      return new Promise((resolve, reject) => {
+        var url = location.href;
+        var urlParams = new URLSearchParams(url.split('?')[1]);
+        var link0 = urlParams.get('urlvideo');
+        //
+        try {
+          var link6 = atob(link0);
+          document.getElementById("video").src = link6;
+          var urlID = link6;
+          var regex = /\/(\d+-\d+-\d+)\//;
+          var regex2 = /\/(\d+)\//;
+          var serie = urlID.match(regex);
+          var pelis = urlID.match(regex2);
+    
+          if (serie) {
+            var numero = serie[1];
+            var numeroSeparado = numero.split("-");
+            console.log(numeroSeparado);
+            const link5 = numeroSeparado;
+            const link1 = "YXBpX2tleT0wMWE5M2U4OTM1NjcxMjZkYzIyNDRiNGVlZTllNjVlNg";
+            const link3 = "aHR0cHM6Ly9hcGkudGhlbW92aWVkYi5vcmcvMy90di8";
+            const link2 = atob(link1);
+            const link4 = atob(link3);
+            fetch(`${link4}${link5}?${link2}`)
+              .then(response => response.json())
+              .then(data => {
+                const nombreSerie = data.name;
+                var spanVideo = document.getElementById("id-video");
+                spanVideo.textContent = nombreSerie;
+                var spanCap = document.getElementById("id-temp");
+                spanCap.textContent = "(T" + numeroSeparado[1];
+                var spanCap = document.getElementById("id-cap");
+                spanCap.textContent = "- E" + numeroSeparado[2] + ")";
+                document.getElementById("reload-btn").href = location.href;
+                resolve();
+              })
+              .catch(error => reject(error));
+          }
+    
+          if (pelis) {
+        var numero = pelis[1];
+        //var numeroSeparado = numero.split("-");
+        console.log(numero);
+        const link5 = numero;
+        const link1 = "YXBpX2tleT0wMWE5M2U4OTM1NjcxMjZkYzIyNDRiNGVlZTllNjVlNg";
+        const link3 = "aHR0cHM6Ly9hcGkudGhlbW92aWVkYi5vcmcvMy9tb3ZpZS8";
+        const link2 = atob(link1);
+        const link4 = atob(link3);
+        fetch(`${link4}${link5}?${link2}`)
+          .then(response => response.json())
+          .then(data => {
+            const movieName = data.title;
+            var spanVideo = document.getElementById("id-video");
+            spanVideo.textContent = movieName;
+            document.getElementById("reload-btn").href = location.href;
+            resolve();
+          })
+          .catch(error => reject(error));
+      }
     } catch (error) {
       reject(error);
     }
   });
-}     
-getUrl()
-      //.then(() => getID())
+}
+    
+    getUrl()
       .catch((error) => {
         console.error("Ocurrió un error:", error);
-      });     
+      });
     </script>
 
   <!-- ======= Footer ======= -->
