@@ -1,38 +1,168 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Consulta de Película en TMDB</title>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-</head>
-<body>
-  <h1>Consulta de Película en TMDB</h1>
-  <div id="picture-info"></div>
-  <div id="movie-info"></div>
-  <script>
-    // Obtener el ID de la película de la URL
-    var urlParams = new URLSearchParams(window.location.search);
-    var tmdbId = urlParams.get('tmdbid');
+<html lang="en">
 
-    // Verificar si el ID existe en la URL
-    if (tmdbId) {
-      // Realizar la consulta a TMDB utilizando el ID de la película
-      $.ajax({
-        url: 'https://api.themoviedb.org/3/movie/' + tmdbId,
-        data: {
-          api_key: '01a93e893567126dc2244b4eee9e65e6' // Reemplaza 'TU_API_KEY' con tu propia clave de API de TMDB
-        },
-        success: function(response) {
-          // Mostrar la información de la película en el HTML
-          var backdropPath = 'https://image.tmdb.org/t/p/original' + response.backdrop_path;
-          $('#picture-info').append('<img style="width: 50%;" src="' + backdropPath + '" alt="Backdrop Image">');
-          var movieInfo = '<pre>' + JSON.stringify(response, null, 2) + '</pre>';
-          $('#movie-info').html(movieInfo);
-        },
-        error: function(error) {
-          console.error('Error al obtener la información de la película:', error);
-        }
-      });
-    }
-  </script>
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>WikiMedia Website - test page</title>
+  <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href="assets/img/favicon.svg" rel="icon">
+    <link href="assets/img/logo.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="assets/css/fonts.css" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script>
+  <!-- =======================================================
+  * Template Name: Techie
+  * Updated: May 30 2023 with Bootstrap v5.3.0
+  * Template URL: https://bootstrapmade.com/techie-free-skin-bootstrap-3/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body style="background: #181A20;">
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center justify-content-between">
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <a href="index.html" class="logo"><img src="assets/img/logo.svg" alt="" class="img-fluid"></a>
+      <h1 class="logo">
+      <a href="index.html">WikiMedia</a></h1>
+
+      <nav id="navbar" class="navbar">
+          <ul>
+              <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+             <!-- <li><a class="nav-link scrollto" href="inner-page.html">inner page</a></li>
+              <li><a class="nav-link scrollto" href="#services">Services</a></li>
+              <li><a class="nav-link scrollto " href="#portfolio">Portfolio-detalles</a></li>
+              <li><a class="nav-link scrollto " href="portfolio-details.html">Portfolio</a></li>
+              <li><a class="nav-link scrollto" href="#team">Team</a></li> 
+              <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+                  <ul>
+                      <li><a href="#">Drop Down 1</a></li>
+                      <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i
+                                  class="bi bi-chevron-right"></i></a>
+                          <ul>
+                              <li><a href="#">Deep Drop Down 1</a></li>
+                              <li><a href="#">Deep Drop Down 2</a></li>
+                              <li><a href="#">Deep Drop Down 3</a></li>
+                              <li><a href="#">Deep Drop Down 4</a></li>
+                              <li><a href="#">Deep Drop Down 5</a></li>
+                          </ul>
+                      </li>
+                      <li><a href="#">Drop Down 2</a></li>
+                      <li><a href="#">Drop Down 3</a></li>
+                      <li><a href="#">Drop Down 4</a></li>
+                  </ul>
+              </li> 
+              <li><a class="nav-link scrollto" href="#contact">Contact</a></li> -->
+              <li><a class="getstarted scrollto" href="#about">Descarga</a></li>
+          </ul>
+          <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+  </div>
+</header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section class="breadcrumbs" style="background: #181A20;">
+      <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center">
+          <h2 style="color:#fff ;">Inner Page</h2>
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li>Inner Page</li>
+          </ol>
+        </div>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section class="inner-page" style="background: #181A20;">
+      <div class="container">
+        <p>
+          Example inner page template
+          
+        </p>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+<footer id="footer">
+
+  <div class="footer-top">
+      <div class="container">
+          <div class="row">
+          </div>
+      </div>
+  </div>
+
+  <div class="container" id="container">
+
+      <div class="copyright-wrap d-md-flex py-4">
+          <div class="me-md-auto text-center text-md-start">
+              <div class="copyright">
+                  &copy; Copyright 2022 - <span id="year"></span> </span> <strong><span>WikiMedia</span></strong> . All Rights Reserved
+              </div>
+              <div class="credits">
+                  Designed by <a href="https://www.facebook.com/ernesto.gavilaneslara">Ghost_KNA</a>
+              </div>
+          </div>
+          <div class="social-links text-center text-md-right pt-3 pt-md-0">
+              <a href="https://play.google.com/store/apps/details?id=com.phantomsolutions.wikimedia" class="play-store"><i class="bx bxl-play-store"></i></a>
+              <a href="https://chat.whatsapp.com/BibdxaZN1M9HCVat7gfKPS" class="whatsapp"><i class="bi bi-whatsapp"></i></a>
+              <a href="https://t.me/wiki_media_main" class="telegram"><i class="bx bxl-telegram"></i></a>
+              
+          </div>
+      </div>
+
+  </div>
+</footer><!-- End Footer -->
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+  class="bi bi-arrow-up-short"></i></a>
+
+<!-- Reload Web    -->    
+  <div id="preloader">  
+  <img src="assets/img/logo.svg" class="img-preloader">  
+          
+  </div> 
+
+<!-- Vendor JS Files -->
+<script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+<script src="assets/vendor/aos/aos.js"></script>
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+<script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+<script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+<script src="assets/vendor/php-email-form/validate.js"></script>
+
+<!-- Template Main JS File -->
+<script src="assets/js/main.js"></script>
+<script src="assets/js/gplay.js"></script>
+
 </body>
+
 </html>
