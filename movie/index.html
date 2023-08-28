@@ -6,6 +6,7 @@
 </head>
 <body>
   <h1>Consulta de Película en TMDB</h1>
+  <div id="picture-info"></div>
   <div id="movie-info"></div>
   <script>
     // Obtener el ID de la película de la URL
@@ -22,6 +23,8 @@
         },
         success: function(response) {
           // Mostrar la información de la película en el HTML
+          var backdropPath = 'https://image.tmdb.org/t/p/original' + response.backdrop_path;
+          $('#picture-info').append('<img style="width: 50%;" src="' + backdropPath + '" alt="Backdrop Image">');
           var movieInfo = '<pre>' + JSON.stringify(response, null, 2) + '</pre>';
           $('#movie-info').html(movieInfo);
         },
