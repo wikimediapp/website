@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Consulta de Película en TMDB</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+  <h1>Consulta de Película en TMDB</h1>
+  <div id="movie-info"></div>
+  <script>
+    // Obtener el ID de la película de la URL
+    var urlParams = new URLSearchParams(window.location.search);
+    var tmdbId = urlParams.get('tmdbid');
+
+    // Verificar si el ID existe en la URL
+    if (tmdbId) {
+      // Realizar la consulta a TMDB utilizando el ID de la película
+      $.ajax({
+        url: 'https://api.themoviedb.org/3/movie/' + tmdbId,
+        data: {
+          api_key: '01a93e893567126dc2244b4eee9e65e6' // Reemplaza 'TU_API_KEY' con tu propia clave de API de TMDB
+        },
+        success: function(response) {
+          // Mostrar la información de la película en el HTML
+          var movieInfo = '<pre>' + JSON.stringify(response, null, 2) + '</pre>';
+          $('#movie-info').html(movieInfo);
+        },
+        error: function(error) {
+          console.error('Error al obtener la información de la película:', error);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
