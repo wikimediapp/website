@@ -1,0 +1,14 @@
+[
+    {
+      "relation": [
+        "delegate_permission/common.handle_all_urls"
+      ],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.phantomsolutions.wikimedia",
+        "sha256_cert_fingerprints": [
+          "E6:16:D4:41:68:30:B4:24:F7:55:53:BB:6F:84:1A:DA:F9:75:19:1A:75:0E:F7:38:C7:C3:83:A2:EE:B0:24:EE"
+        ]
+      }
+    }
+  ]
