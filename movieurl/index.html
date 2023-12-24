@@ -159,9 +159,9 @@
       // Verificar si el ID existe en la URL
       if (tmdbId) {
         // Construir la URL de redirección con el protocolo adecuado
-        var redirectUrl = 'intent://open.wikimedia#Intent;scheme=app;action=View;pathPrefix=movie/' + tmdbId + ';end';
-//href="intent://open.wikimedia#Intent;scheme=app;action=View;pathPrefix=movie/tmdbid;end">Link to my stuff</a>
-//href="intent://open.wikimedia#Intent;scheme=app;action=View;pathPrefix=movie/tmdbid;end">Link to my stuff</a>
+        var redirectUrl = 'app://open.wikimedia/movie/' + tmdbId;
+        //intent://app://open.wikimedia/movie/#Intent;scheme=app;action=View;end">Link to my stuff
+        //intent://open.wikimedia#Intent;scheme=app;action=View;end">Link to my stuff
         // Crear un enlace y establecer su atributo href
         var redirectLink = document.createElement('a');
         redirectLink.href = redirectUrl;
@@ -173,7 +173,7 @@
         redirectLink.click();
 
         // Eliminar el enlace del cuerpo del documento (opcional)
-        document.body.removeChild(redirectLink);
+       // document.body.removeChild(redirectLink);
       }
     </script>
 
