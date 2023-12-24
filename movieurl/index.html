@@ -168,10 +168,10 @@
           },
           success: function (response) {
             // Mostrar la información de la película en el HTML
-            var backdropPath = 'https://image.tmdb.org/t/p/original' + response.backdrop_path;
-            $('#picture-info').append('<img style="width: 25%;" src="' + backdropPath + '" alt="Backdrop Image">');
-            var movieInfo = '<pre>' + JSON.stringify(response, null, 2) + '</pre>';
-            $('#movie-info').html(movieInfo);
+           // var backdropPath = 'https://image.tmdb.org/t/p/original' + response.backdrop_path;
+          //  $('#picture-info').append('<img style="width: 25%;" src="' + backdropPath + '" alt="Backdrop Image">');
+          //  var movieInfo = '<pre>' + JSON.stringify(response, null, 2) + '</pre>';
+          //  $('#movie-info').html(movieInfo);
             var movietitle = response.title;
             // Actualizar el título de la página
             document.title = 'WikiMedia Website - ' + movietitle;
@@ -186,13 +186,13 @@
         // Construir la URL de redirección con el protocolo adecuado
             var redirectUrl = 'app://open.wikimedia/movie/' + tmdbId + '#Intent;scheme=https;package=com.phantomsolutions.wikimedia;end';
             var redirectLink = document.createElement('a');
-            redirectLink.href = redirectUrl;
+           // redirectLink.href = redirectUrl;
     
             // Agregar el enlace al cuerpo del documento
-            document.body.appendChild(redirectLink);
+          //  document.body.appendChild(redirectLink);
     
             // Simular un clic en el enlace para activar la redirección
-            redirectLink.click();
+          //  redirectLink.click();
     
             // Eliminar el enlace del cuerpo del documento (opcional)
            // document.body.removeChild(redirectLink);
