@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>WikiMedia Website - Movie URL</title>
+  <title>WikiMedia Website - {{ movietitle }}</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -101,9 +101,11 @@
 
         <div class="d-flex justify-content-between align-items-center">
           <h2 style="color:#fff ;">Movie URL</h2>
+
           <ol>
             <li><a href="../index.html">Home</a></li>
             <li>Movie URL</li>
+
           </ol>
         </div>
 
@@ -121,7 +123,7 @@
         </button> -->
         <br>
         <div id="movie-info"></div>
-<p>testok</p>
+
 
         </p>
       </div>
@@ -158,34 +160,42 @@
 
       // Verificar si el ID existe en la URL
       if (tmdbId) {
+        //Tomar el nombre de la movie
+        $.ajax({
+          url: 'https://api.themoviedb.org/3/movie/' + tmdbId,
+          data: {
+            api_key: '01a93e893567126dc2244b4eee9e65e6' // Reemplaza 'TU_API_KEY' con tu propia clave de API de TMDB
+          },
+          success: function (response) {
+            // Mostrar la información de la película en el HTML
+            var backdropPath = 'https://image.tmdb.org/t/p/original' + response.backdrop_path;
+            $('#picture-info').append('<img style="width: 25%;" src="' + backdropPath + '" alt="Backdrop Image">');
+            var movieInfo = '<pre>' + JSON.stringify(response, null, 2) + '</pre>';
+            $('#movie-info').html(movieInfo);
+            var movietitle = response.title;
+            // Actualizar el título de la página
+            document.title = 'WikiMedia Website - ' + movietitle;
+          },
+          error: function (error) {
+            console.error('Error al obtener la información de la película:', error);
+          }
+        });
+
+
+
         // Construir la URL de redirección con el protocolo adecuado
-        //var redirectUrl = 'app://open.wikimedia/movie/' + tmdbId;
-        var redirectUrl = 'app://open.wikimedia/movie/' + tmdbId + '#Intent;scheme=https;package=com.phantomsolutions.wikimedia;end';
-                      //intent://instagram.com/                     #Intent;scheme=https;package=com.instagram.android;end
-
-
-
-
-
-
-        //intent://app://open.wikimedia/movie/#Intent;scheme=app;action=View;end">Link to my stuff
-
-
-
-
-        //intent://open.wikimedia#Intent;scheme=app;action=View;end">Link to my stuff
-        // Crear un enlace y establecer su atributo href
-        var redirectLink = document.createElement('a');
-        redirectLink.href = redirectUrl;
-
-        // Agregar el enlace al cuerpo del documento
-        document.body.appendChild(redirectLink);
-
-        // Simular un clic en el enlace para activar la redirección
-        redirectLink.click();
-
-        // Eliminar el enlace del cuerpo del documento (opcional)
-       // document.body.removeChild(redirectLink);
+            var redirectUrl = 'app://open.wikimedia/movie/' + tmdbId + '#Intent;scheme=https;package=com.phantomsolutions.wikimedia;end';
+            var redirectLink = document.createElement('a');
+            redirectLink.href = redirectUrl;
+    
+            // Agregar el enlace al cuerpo del documento
+            document.body.appendChild(redirectLink);
+    
+            // Simular un clic en el enlace para activar la redirección
+            redirectLink.click();
+    
+            // Eliminar el enlace del cuerpo del documento (opcional)
+           // document.body.removeChild(redirectLink);
       }
     </script>
 
