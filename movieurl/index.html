@@ -5,9 +5,18 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>WikiMedia Website - </title>
+  <title>WikiMedia Website - Share Url</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
+
+  <!-- Meta tags de Open Graph para personalizar la previsualización en WhatsApp -->
+  <meta property="og:title" content="Título personalizado de la previsualización en WhatsApp">
+  <meta property="og:description" content="Descripción de tu página para la previsualización en WhatsApp">
+  <meta property="og:image" content="URL_de_la_imagen_a_mostrar.jpg">
+  <meta property="og:url" content="URL_de_tu_página">
+
+  <!-- Otras meta tags necesarias para el funcionamiento general de tu página -->
+  <!-- ... -->
 
   <!-- Favicons -->
   <link href="../assets/img/favicon.svg" rel="icon">
@@ -130,30 +139,6 @@
     </section>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
-      function copiarContenido() {
-        // Obtener el contenido del elemento
-        // Obtener el contenido del elemento <pre>
-        var contenido = document.querySelector("pre").innerText;
-
-        // Crear un elemento de texto temporal
-        var elementoTemporal = document.createElement("textarea");
-        elementoTemporal.value = contenido;
-
-        // Añadir el elemento temporal al documento
-        document.body.appendChild(elementoTemporal);
-
-        // Seleccionar y copiar el contenido del elemento temporal
-        elementoTemporal.select();
-        document.execCommand("copy");
-
-        // Remover el elemento temporal del documento
-        document.body.removeChild(elementoTemporal);
-
-        // Mostrar un mensaje de éxito
-        alert("Contenido copiado al portapapeles");
-      }
-    </script>
-    <script>
       // Obtener el ID de la película de la URL
       var urlParams = new URLSearchParams(window.location.search);
       var tmdbId = urlParams.get('tmdbid');
@@ -168,34 +153,52 @@
           },
           success: function (response) {
             // Mostrar la información de la película en el HTML
-           // var backdropPath = 'https://image.tmdb.org/t/p/original' + response.backdrop_path;
-          //  $('#picture-info').append('<img style="width: 25%;" src="' + backdropPath + '" alt="Backdrop Image">');
-          //  var movieInfo = '<pre>' + JSON.stringify(response, null, 2) + '</pre>';
-          //  $('#movie-info').html(movieInfo);
-            var movietitle = response.title;
+            // var backdropPath = 'https://image.tmdb.org/t/p/original' + response.backdrop_path;
+            //  $('#picture-info').append('<img style="width: 25%;" src="' + backdropPath + '" alt="Backdrop Image">');
+            //  var movieInfo = '<pre>' + JSON.stringify(response, null, 2) + '</pre>';
+            //  $('#movie-info').html(movieInfo);
+            var movietitle = 'WikiMedia Website - ' + response.title;
             // Actualizar el título de la página
-            document.title = 'WikiMedia Website - ' + movietitle;
+            // document.title = 'WikiMedia Website - ' + movietitle;
+
+
           },
           error: function (error) {
             console.error('Error al obtener la información de la película:', error);
           }
         });
 
+        document.addEventListener('DOMContentLoaded', function () {
+          console.log('DOMContentLoaded ocurrió correctamente');
+          // Obtener el valor de og:title
+          var ogTitle = document.querySelector('meta[property="og:title"]').getAttribute('content');
 
+          // Asignar el valor de og:title a la variable movietitle
+          var movietitle = ogTitle;
+
+          // Mostrar el valor de movietitle en la consola
+          console.log('Título de la película:', movietitle);
+
+          // Ahora puedes usar movietitle para otras operaciones
+          // ...
+
+          // También puedes asignar el valor de movietitle al título de la página si es necesario
+          document.title = movietitle;
+        });
 
         // Construir la URL de redirección con el protocolo adecuado
-            var redirectUrl = 'app://open.wikimedia/movie/' + tmdbId + '#Intent;scheme=https;package=com.phantomsolutions.wikimedia;end';
-            var redirectLink = document.createElement('a');
-           // redirectLink.href = redirectUrl;
-    
-            // Agregar el enlace al cuerpo del documento
-          //  document.body.appendChild(redirectLink);
-    
-            // Simular un clic en el enlace para activar la redirección
-          //  redirectLink.click();
-    
-            // Eliminar el enlace del cuerpo del documento (opcional)
-           // document.body.removeChild(redirectLink);
+        var redirectUrl = 'app://open.wikimedia/movie/' + tmdbId + '#Intent;scheme=https;package=com.phantomsolutions.wikimedia;end';
+        var redirectLink = document.createElement('a');
+        // redirectLink.href = redirectUrl;
+
+        // Agregar el enlace al cuerpo del documento
+        document.body.appendChild(redirectLink);
+
+        // Simular un clic en el enlace para activar la redirección
+        //  redirectLink.click();
+
+        // Eliminar el enlace del cuerpo del documento (opcional)
+        // document.body.removeChild(redirectLink);
       }
     </script>
 
