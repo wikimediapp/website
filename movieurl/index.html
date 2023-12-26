@@ -149,6 +149,16 @@
       });
 
       document.addEventListener('DOMContentLoaded', function () {
+        // Obtener el valor de og:description
+        var ogDesc = document.querySelector('meta[property="og:description"]').getAttribute('content');
+      });
+
+      document.addEventListener('DOMContentLoaded', function () {
+        // Obtener el valor de og:image
+        var ogImg = document.querySelector('meta[property="og:image"]').getAttribute('content');
+      });
+
+      document.addEventListener('DOMContentLoaded', function () {
         // Obtener el valor de og:url
         var ogURrl = document.querySelector('meta[property="og:url"]').getAttribute('content');
       });
@@ -164,11 +174,15 @@
           console.log(data.title);
           console.log(data.overview);
           console.log(window.location.href);
+          ogTitle = data.title;
+          ogDesc = data.overview
+          ogImg = 'https://www.themoviedb.org/t/p/w500_and_h282_face/' + data.poster_path;
+          ogURrl = window.location.href;
           // Actualizar los valores de los metatags de Open Graph con la información de la película
-          document.querySelector('meta[property="og:title"]').setAttribute('content', data.title);
-          document.querySelector('meta[property="og:description"]').setAttribute('content', data.overview);
-          document.querySelector('meta[property="og:image"]').setAttribute('content', 'https://www.themoviedb.org/t/p/w500_and_h282_face/' + data.poster_path);
-          document.querySelector('meta[property="og:url"]').setAttribute('content', window.location.href);
+         // document.querySelector('meta[property="og:title"]').setAttribute('content', data.title);
+        //  document.querySelector('meta[property="og:description"]').setAttribute('content', data.overview);
+         // document.querySelector('meta[property="og:image"]').setAttribute('content', 'https://www.themoviedb.org/t/p/w500_and_h282_face/' + data.poster_path);
+        //  document.querySelector('meta[property="og:url"]').setAttribute('content', window.location.href);
 
           // También puedes actualizar otros elementos de tu página según sea necesario
           document.title = 'WikiMedia Website - ' + data.title;
