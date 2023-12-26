@@ -10,10 +10,90 @@
   <meta content="" name="keywords">
 
   <!-- Meta tags de Open Graph para personalizar la previsualización en WhatsApp -->
-  <meta property="og:title" content="Titanic">
-  <meta property="og:description" content="101-year-old Rose DeWitt Bukater tells the story of her life aboard the Titanic, 84 years later. A young Rose boards the ship with her mother and fiancé. Meanwhile, Jack Dawson and Fabrizio De Rossi win third-class tickets aboard the ship. Rose tells the whole story from Titanic's departure through to its death—on its first and last voyage—on April 15, 1912.">
-  <meta property="og:image" content="https://www.themoviedb.org/t/p/w500_and_h282_face//9xjZS2rlVxm8SFx8kPC3aIGCOYQ.jpg">
-  <meta property="og:url" content="https://www.themoviedb.org/movie/616037-thor-love-and-thunder">
+  <meta property="og:title" content="">
+  <meta property="og:description" content="">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+
+  <script>
+    // Obtener el ID de la película de la URL
+    var urlParams = new URLSearchParams(window.location.search);
+    var tmdbId = urlParams.get('tmdbid');
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Obtener el valor de og:title
+      var ogTitle = document.querySelector('meta[property="og:title"]').getAttribute('content');
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Obtener el valor de og:description
+      var ogDesc = document.querySelector('meta[property="og:description"]').getAttribute('content');
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Obtener el valor de og:image
+      var ogImg = document.querySelector('meta[property="og:image"]').getAttribute('content');
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      // Obtener el valor de og:url
+      var ogURrl = document.querySelector('meta[property="og:url"]').getAttribute('content');
+    });
+
+    // Verificar si el ID existe en la URL
+    if (tmdbId) {
+      //Tomar el nombre de la película usando una API (por ejemplo, The Movie Database API)
+      // Este es solo un ejemplo; reemplázalo con tu propia lógica para obtener detalles de la película
+
+
+      $.ajax({
+        url: 'https://api.themoviedb.org/3/movie/' + tmdbId,
+        data: {
+          api_key: '01a93e893567126dc2244b4eee9e65e6' // Reemplaza 'TU_API_KEY' con tu propia clave de API de TMDB
+        },
+        success: function (response) {
+          console.log(response.title);
+          console.log(response.overview);
+          console.log('https://www.themoviedb.org/t/p/w500_and_h282_face/' + response.poster_path);
+          console.log(window.location.href);
+          ogTitle = response.title;
+          ogDesc = response.overview
+          ogImg = 'https://www.themoviedb.org/t/p/w500_and_h282_face/' + response.poster_path;
+          ogURrl = window.location.href;
+
+          var movietitle = response.title;
+          // Actualizar el título de la página
+          document.title = movietitle;
+          // Asignar el valor de response.title a ogTitle
+          ogTitle = response.title;
+
+          // Mostrar el valor de ogTitle en la consola
+          console.log('ogTitle:', ogTitle);
+
+
+        },
+        error: function (error) {
+          console.error('Error al obtener la información de la película:', error);
+        }
+      });
+
+
+
+      // Construir la URL de redirección con el protocolo adecuado
+      var redirectUrl = 'app://open.wikimedia/movie/' + tmdbId + '#Intent;scheme=https;package=com.phantomsolutions.wikimedia;end';
+      var redirectLink = document.createElement('a');
+      // redirectLink.href = redirectUrl;
+
+      // Agregar el enlace al cuerpo del documento
+      document.body.appendChild(redirectLink);
+
+      // Simular un clic en el enlace para activar la redirección
+      //  redirectLink.click();
+
+      // Eliminar el enlace del cuerpo del documento (opcional)
+      // document.body.removeChild(redirectLink);
+    }
+  </script>
 
   <!-- Otras meta tags necesarias para el funcionamiento general de tu página -->
   <!-- ... -->
@@ -138,85 +218,7 @@
       </div>
     </section>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      // Obtener el ID de la película de la URL
-      var urlParams = new URLSearchParams(window.location.search);
-      var tmdbId = urlParams.get('tmdbid');
 
-      document.addEventListener('DOMContentLoaded', function () {
-        // Obtener el valor de og:title
-        var ogTitle = document.querySelector('meta[property="og:title"]').getAttribute('content');
-      });
-
-      document.addEventListener('DOMContentLoaded', function () {
-        // Obtener el valor de og:description
-        var ogDesc = document.querySelector('meta[property="og:description"]').getAttribute('content');
-      });
-
-      document.addEventListener('DOMContentLoaded', function () {
-        // Obtener el valor de og:image
-        var ogImg = document.querySelector('meta[property="og:image"]').getAttribute('content');
-      });
-
-      document.addEventListener('DOMContentLoaded', function () {
-        // Obtener el valor de og:url
-        var ogURrl = document.querySelector('meta[property="og:url"]').getAttribute('content');
-      });
-
-      // Verificar si el ID existe en la URL
-      if (tmdbId) {
-        //Tomar el nombre de la película usando una API (por ejemplo, The Movie Database API)
-        // Este es solo un ejemplo; reemplázalo con tu propia lógica para obtener detalles de la película
-
-
-        $.ajax({
-          url: 'https://api.themoviedb.org/3/movie/' + tmdbId,
-          data: {
-            api_key: '01a93e893567126dc2244b4eee9e65e6' // Reemplaza 'TU_API_KEY' con tu propia clave de API de TMDB
-          },
-          success: function (response) {
-            console.log(response.title);
-            console.log(response.overview);
-            console.log('https://www.themoviedb.org/t/p/w500_and_h282_face/' + response.poster_path);
-            console.log(window.location.href);
-            ogTitle = response.title;
-            ogDesc = response.overview
-            ogImg = 'https://www.themoviedb.org/t/p/w500_and_h282_face/' + response.poster_path;
-            ogURrl = window.location.href;
-
-            var movietitle = response.title;
-            // Actualizar el título de la página
-             document.title = movietitle;
-            // Asignar el valor de response.title a ogTitle
-            ogTitle = response.title;
-
-            // Mostrar el valor de ogTitle en la consola
-            console.log('ogTitle:', ogTitle);
-
-
-          },
-          error: function (error) {
-            console.error('Error al obtener la información de la película:', error);
-          }
-        });
-
-
-
-        // Construir la URL de redirección con el protocolo adecuado
-        var redirectUrl = 'app://open.wikimedia/movie/' + tmdbId + '#Intent;scheme=https;package=com.phantomsolutions.wikimedia;end';
-        var redirectLink = document.createElement('a');
-        // redirectLink.href = redirectUrl;
-
-        // Agregar el enlace al cuerpo del documento
-        document.body.appendChild(redirectLink);
-
-        // Simular un clic en el enlace para activar la redirección
-        //  redirectLink.click();
-
-        // Eliminar el enlace del cuerpo del documento (opcional)
-        // document.body.removeChild(redirectLink);
-      }
-    </script>
 
 
 
