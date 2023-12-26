@@ -160,10 +160,14 @@
       fetch('https://api.themoviedb.org/3/movie/' + tmdbId + '?api_key=01a93e893567126dc2244b4eee9e65e6')
         .then(response => response.json())
         .then(data => {
+         // console.log(data);
+          console.log(data.title);
+          console.log(data.overview);
+          console.log(window.location.href);
           // Actualizar los valores de los metatags de Open Graph con la información de la película
           document.querySelector('meta[property="og:title"]').setAttribute('content', data.title);
           document.querySelector('meta[property="og:description"]').setAttribute('content', data.overview);
-          document.querySelector('meta[property="og:image"]').setAttribute('content', 'URL_de_la_imagen_de_la_pelicula');
+          document.querySelector('meta[property="og:image"]').setAttribute('content', 'https://www.themoviedb.org/t/p/w500_and_h282_face/' + data.poster_path);
           document.querySelector('meta[property="og:url"]').setAttribute('content', window.location.href);
 
           // También puedes actualizar otros elementos de tu página según sea necesario
