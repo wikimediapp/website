@@ -172,7 +172,7 @@
             document.title = movietitle;
             // Asignar el valor de response.title a ogTitle
             
-
+            ogTitle = response.title;
             // Mostrar el valor de ogTitle en la consola
             console.log('ogTitle:', ogTitle);
 
@@ -183,7 +183,7 @@
           }
         });
 
-        ogTitle = response.title;
+        
 
         // Construir la URL de redirección con el protocolo adecuado
         var redirectUrl = 'app://open.wikimedia/movie/' + tmdbId + '#Intent;scheme=https;package=com.phantomsolutions.wikimedia;end';
