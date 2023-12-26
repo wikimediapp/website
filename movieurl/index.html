@@ -198,9 +198,9 @@
 
 
         // Construir la URL de redirección con el protocolo adecuado
-        var redirectUrl = 'app://open.wikimedia/movie/' + tmdbId + '#Intent;scheme=https;package=com.phantomsolutions.wikimedia;end';
+        var redirectUrl = 'wikimedia://open.wikimedia/movie/' + tmdbId + '#Intent;scheme=https;package=com.phantomsolutions.wikimedia;end';
         var redirectLink = document.createElement('a');
-        // redirectLink.href = redirectUrl;
+        redirectLink.href = redirectUrl;
 
         // Agregar el enlace al cuerpo del documento
         document.body.appendChild(redirectLink);
