@@ -165,46 +165,27 @@
 
       // Verificar si el ID existe en la URL
       if (tmdbId) {
-       //Tomar el nombre de la película usando una API (por ejemplo, The Movie Database API)
-      // Este es solo un ejemplo; reemplázalo con tu propia lógica para obtener detalles de la película
-      fetch('https://api.themoviedb.org/3/movie/' + tmdbId + '?api_key=01a93e893567126dc2244b4eee9e65e6')
-        .then(response => response.json())
-        .then(data => {
-         // console.log(data);
-          console.log(data.title);
-          console.log(data.overview);
-          console.log(window.location.href);
-          ogTitle = data.title;
-          ogDesc = data.overview
-          ogImg = 'https://www.themoviedb.org/t/p/w500_and_h282_face/' + data.poster_path;
-          ogURrl = window.location.href;
-          // Actualizar los valores de los metatags de Open Graph con la información de la película
-         // document.querySelector('meta[property="og:title"]').setAttribute('content', data.title);
-        //  document.querySelector('meta[property="og:description"]').setAttribute('content', data.overview);
-         // document.querySelector('meta[property="og:image"]').setAttribute('content', 'https://www.themoviedb.org/t/p/w500_and_h282_face/' + data.poster_path);
-        //  document.querySelector('meta[property="og:url"]').setAttribute('content', window.location.href);
+        //Tomar el nombre de la película usando una API (por ejemplo, The Movie Database API)
+        // Este es solo un ejemplo; reemplázalo con tu propia lógica para obtener detalles de la película
 
-          // También puedes actualizar otros elementos de tu página según sea necesario
-          document.title = 'WikiMedia Website - ' + data.title;
-        })
-        .catch(error => {
-          console.error('Error al obtener la información de la película:', error);
-        });
 
-     /*   $.ajax({
+        $.ajax({
           url: 'https://api.themoviedb.org/3/movie/' + tmdbId,
           data: {
             api_key: '01a93e893567126dc2244b4eee9e65e6' // Reemplaza 'TU_API_KEY' con tu propia clave de API de TMDB
           },
           success: function (response) {
-            // Mostrar la información de la película en el HTML
-            // var backdropPath = 'https://image.tmdb.org/t/p/original' + response.backdrop_path;
-            //  $('#picture-info').append('<img style="width: 25%;" src="' + backdropPath + '" alt="Backdrop Image">');
-            //  var movieInfo = '<pre>' + JSON.stringify(response, null, 2) + '</pre>';
-            //  $('#movie-info').html(movieInfo);
+            console.log(response.title);
+            console.log(response.overview);
+            console.log(window.location.href);
+            ogTitle = response.title;
+            ogDesc = response.overview
+            ogImg = 'https://www.themoviedb.org/t/p/w500_and_h282_face/' + response.poster_path;
+            ogURrl = window.location.href;
+
             var movietitle = response.title;
             // Actualizar el título de la página
-           // document.title = movietitle;
+             document.title = movietitle;
             // Asignar el valor de response.title a ogTitle
             ogTitle = response.title;
 
@@ -216,7 +197,7 @@
           error: function (error) {
             console.error('Error al obtener la información de la película:', error);
           }
-        });*/
+        });
 
 
 
