@@ -10,7 +10,7 @@
   <meta content="" name="keywords">
 
   <!-- Meta tags de Open Graph para personalizar la previsualización en WhatsApp -->
-  <meta property="og:title" content="title Movie">
+  <meta property="og:title" content="Title Movie">
   <meta property="og:description" content="Descripción">
   <meta property="og:image" content="">
   <meta property="og:url" content="">
@@ -169,9 +169,9 @@
             //  $('#movie-info').html(movieInfo);
             var movietitle = response.title;
             // Actualizar el título de la página
-            // document.title = movietitle;
+            document.title = movietitle;
             // Asignar el valor de response.title a ogTitle
-            ogTitle = response.title;
+            
 
             // Mostrar el valor de ogTitle en la consola
             console.log('ogTitle:', ogTitle);
@@ -183,7 +183,7 @@
           }
         });
 
-
+        ogTitle = response.title;
 
         // Construir la URL de redirección con el protocolo adecuado
         var redirectUrl = 'app://open.wikimedia/movie/' + tmdbId + '#Intent;scheme=https;package=com.phantomsolutions.wikimedia;end';
