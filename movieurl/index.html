@@ -5,13 +5,13 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <!-- <title>WikiMedia Website - Share Url</title> -->
+  <title>WikiMedia Website - Share Url</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
   <!-- Meta tags de Open Graph para personalizar la previsualización en WhatsApp -->
-  <meta property="og:title" content="">
-  <meta property="og:description" content="">
+  <meta property="og:title" content="title Movie">
+  <meta property="og:description" content="Descripción">
   <meta property="og:image" content="">
   <meta property="og:url" content="">
 
@@ -149,46 +149,29 @@
       });
 
       document.addEventListener('DOMContentLoaded', function () {
-        // Obtener el valor de og:description
-        var ogDesc = document.querySelector('meta[property="og:description"]').getAttribute('content');
-      });
-
-      document.addEventListener('DOMContentLoaded', function () {
-        // Obtener el valor de og:image
-        var ogImg = document.querySelector('meta[property="og:image"]').getAttribute('content');
-      });
-
-      document.addEventListener('DOMContentLoaded', function () {
         // Obtener el valor de og:url
         var ogURrl = document.querySelector('meta[property="og:url"]').getAttribute('content');
       });
 
       // Verificar si el ID existe en la URL
       if (tmdbId) {
-        //Tomar el nombre de la película usando una API (por ejemplo, The Movie Database API)
-        // Este es solo un ejemplo; reemplázalo con tu propia lógica para obtener detalles de la película
-
-
+        //Tomar el nombre de la movie
         $.ajax({
           url: 'https://api.themoviedb.org/3/movie/' + tmdbId,
           data: {
             api_key: '01a93e893567126dc2244b4eee9e65e6' // Reemplaza 'TU_API_KEY' con tu propia clave de API de TMDB
           },
           success: function (response) {
-            console.log(response.title);
-            console.log(response.overview);
-            console.log('https://www.themoviedb.org/t/p/w500_and_h282_face/' + response.poster_path);
-            console.log(window.location.href);
-            ogTitle = response.title;
-            ogDesc = response.overview
-            ogImg = 'https://www.themoviedb.org/t/p/w500_and_h282_face/' + response.poster_path;
-            ogURrl = window.location.href;
-
+            // Mostrar la información de la película en el HTML
+            // var backdropPath = 'https://image.tmdb.org/t/p/original' + response.backdrop_path;
+            //  $('#picture-info').append('<img style="width: 25%;" src="' + backdropPath + '" alt="Backdrop Image">');
+            //  var movieInfo = '<pre>' + JSON.stringify(response, null, 2) + '</pre>';
+            //  $('#movie-info').html(movieInfo);
             var movietitle = response.title;
             // Actualizar el título de la página
-            document.title = movietitle;
+            // document.title = movietitle;
             // Asignar el valor de response.title a ogTitle
-           // ogTitle = response.title;
+            ogTitle = response.title;
 
             // Mostrar el valor de ogTitle en la consola
             console.log('ogTitle:', ogTitle);
@@ -200,7 +183,7 @@
           }
         });
 
-
+        
 
         // Construir la URL de redirección con el protocolo adecuado
         var redirectUrl = 'app://open.wikimedia/movie/' + tmdbId + '#Intent;scheme=https;package=com.phantomsolutions.wikimedia;end';
