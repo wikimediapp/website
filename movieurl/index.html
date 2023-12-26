@@ -143,10 +143,10 @@
       var urlParams = new URLSearchParams(window.location.search);
       var tmdbId = urlParams.get('tmdbid');
 
-      document.addEventListener('DOMContentLoaded', function () {
-        // Obtener el valor de og:title
-        var ogTitle = document.querySelector('meta[property="og:title"]').setAttribute('content');
-      });
+      // document.addEventListener('DOMContentLoaded', function () {
+      // Obtener el valor de og:title
+
+      // });
 
       document.addEventListener('DOMContentLoaded', function () {
         // Obtener el valor de og:url
@@ -155,6 +155,7 @@
 
       // Verificar si el ID existe en la URL
       if (tmdbId) {
+        var ogTitle = document.querySelector('meta[property="og:title"]').getAttribute('content');
         //Tomar el nombre de la movie
         $.ajax({
           url: 'https://api.themoviedb.org/3/movie/' + tmdbId,
@@ -163,27 +164,38 @@
           },
           success: function (response) {
             // Mostrar la información de la película en el HTML
-            // var backdropPath = 'https://image.tmdb.org/t/p/original' + response.backdrop_path;
-            //  $('#picture-info').append('<img style="width: 25%;" src="' + backdropPath + '" alt="Backdrop Image">');
-            //  var movieInfo = '<pre>' + JSON.stringify(response, null, 2) + '</pre>';
-            //  $('#movie-info').html(movieInfo);
+            // ... (código existente)
+
             var movietitle = response.title;
+
             // Actualizar el título de la página
             document.title = movietitle;
+
             // Asignar el valor de response.title a ogTitle
-            
             ogTitle = response.title;
+
+            // Actualizar la metaetiqueta Open Graph para el título
+            var ogTitleMeta = document.querySelector('meta[property="og:title"]');
+            if (ogTitleMeta) {
+              ogTitleMeta.setAttribute('content', ogTitle);
+            } else {
+              // Si no existe la metaetiqueta, puedes crearla y agregarla al head
+              var newOgTitleMeta = document.createElement('meta');
+              newOgTitleMeta.setAttribute('property', 'og:title');
+              newOgTitleMeta.setAttribute('content', ogTitle);
+              document.head.appendChild(newOgTitleMeta);
+            }
+
             // Mostrar el valor de ogTitle en la consola
-            console.log('ogTitle2:', ogTitle);
-
-
+            console.log('ogTitle:', ogTitle);
           },
           error: function (error) {
             console.error('Error al obtener la información de la película:', error);
           }
         });
 
-        
+
+
 
         // Construir la URL de redirección con el protocolo adecuado
         var redirectUrl = 'app://open.wikimedia/movie/' + tmdbId + '#Intent;scheme=https;package=com.phantomsolutions.wikimedia;end';
