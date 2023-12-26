@@ -144,27 +144,36 @@
       var tmdbId = urlParams.get('tmdbid');
 
       document.addEventListener('DOMContentLoaded', function () {
-        console.log('DOMContentLoaded ocurrió correctamente');
         // Obtener el valor de og:title
         var ogTitle = document.querySelector('meta[property="og:title"]').getAttribute('content');
+      });
 
-        // Asignar el valor de og:title a la variable movietitle
-        //var movietitle = ogTitle;
-
-        // Mostrar el valor de movietitle en la consola
-        //console.log('Título de la película:', movietitle);
-
-        // Ahora puedes usar movietitle para otras operaciones
-        // ...
-
-        // También puedes asignar el valor de movietitle al título de la página si es necesario
-        //document.title = movietitle;
+      document.addEventListener('DOMContentLoaded', function () {
+        // Obtener el valor de og:url
+        var ogURrl = document.querySelector('meta[property="og:url"]').getAttribute('content');
       });
 
       // Verificar si el ID existe en la URL
       if (tmdbId) {
-        //Tomar el nombre de la movie
-        $.ajax({
+       //Tomar el nombre de la película usando una API (por ejemplo, The Movie Database API)
+      // Este es solo un ejemplo; reemplázalo con tu propia lógica para obtener detalles de la película
+      fetch('https://api.themoviedb.org/3/movie/' + tmdbId + '?api_key=01a93e893567126dc2244b4eee9e65e6')
+        .then(response => response.json())
+        .then(data => {
+          // Actualizar los valores de los metatags de Open Graph con la información de la película
+          document.querySelector('meta[property="og:title"]').setAttribute('content', data.title);
+          document.querySelector('meta[property="og:description"]').setAttribute('content', data.overview);
+          document.querySelector('meta[property="og:image"]').setAttribute('content', 'URL_de_la_imagen_de_la_pelicula');
+          document.querySelector('meta[property="og:url"]').setAttribute('content', window.location.href);
+
+          // También puedes actualizar otros elementos de tu página según sea necesario
+          document.title = 'WikiMedia Website - ' + data.title;
+        })
+        .catch(error => {
+          console.error('Error al obtener la información de la película:', error);
+        });
+
+     /*   $.ajax({
           url: 'https://api.themoviedb.org/3/movie/' + tmdbId,
           data: {
             api_key: '01a93e893567126dc2244b4eee9e65e6' // Reemplaza 'TU_API_KEY' con tu propia clave de API de TMDB
@@ -189,7 +198,7 @@
           error: function (error) {
             console.error('Error al obtener la información de la película:', error);
           }
-        });
+        });*/
 
 
 
