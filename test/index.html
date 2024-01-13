@@ -8,24 +8,14 @@
 <body>
 
 
+    
+
     <script>
-
         var link = document.createElement('meta');
-
-        link.setAttribute('property', 'og:url');
-
-        link.content = document.location;
-
+        link.setAttribute('property', 'og:title');
+        link.content = "The Rock";
         document.getElementsByTagName('head')[0].appendChild(link);
-
     </script>
-
-<script>
-    var link = document.createElement('meta');
-    link.setAttribute('name', 'og:title');
-    link.content = "The Rock";
-    document.getElementsByTagName('head')[0].appendChild(link);
-  </script>
 </body>
 
 </html>
