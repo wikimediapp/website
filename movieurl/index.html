@@ -10,7 +10,7 @@
   <meta content="movie series" name="keywords">
 
   <!-- Meta tags de Open Graph para personalizar la previsualización en WhatsApp -->
-  <meta property="og:title" content="Title Movie">
+  <meta property="og:title" content="">
   <meta property="og:description" content="Descripción">
   <meta property="og:image" content="asd.png">
   <meta property="og:url" content="">
@@ -155,7 +155,9 @@
 
       // Verificar si el ID existe en la URL
       if (tmdbId) {
-        var ogTitle = document.querySelector('meta[property="og:title"]').getAttribute('content');
+        //var ogTitle = document.querySelector('meta[property="og:title"]').getAttribute('content');
+        const metas = Array.from(document.getElementsByTagName('meta'))
+    
         //Tomar el nombre de la movie
         $.ajax({
           url: 'https://api.themoviedb.org/3/movie/' + tmdbId,
@@ -172,10 +174,12 @@
             document.title = movietitle;
 
             // Asignar el valor de response.title a ogTitle
-            ogTitle = response.title;
+           // ogTitle = response.title;
+           const metaTitle = metas.find((m) => m.attributes[0].nodeValue === 'og:title');
+           metaTitle.attributes[1].nodeValue = response.title;
 
             // Actualizar la metaetiqueta Open Graph para el título
-            var ogTitleMeta = document.querySelector('meta[property="og:title"]');
+            /*var ogTitleMeta = document.querySelector('meta[property="og:title"]');
             if (ogTitleMeta) {
               ogTitleMeta.setAttribute('content', ogTitle);
             } else {
@@ -184,10 +188,10 @@
               newOgTitleMeta.setAttribute('property', 'og:title');
               newOgTitleMeta.setAttribute('content', ogTitle);
               document.head.appendChild(newOgTitleMeta);
-            }
+            }*/
 
             // Mostrar el valor de ogTitle en la consola
-            console.log('ogTitle:', ogTitle);
+            console.log('metaTitle:', metaTitle);
           },
           error: function (error) {
             console.error('Error al obtener la información de la película:', error);
