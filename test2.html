@@ -8,11 +8,7 @@
     <meta content="movie series" name="keywords">
 
     <!-- Meta tags de Open Graph para personalizar la previsualización en WhatsApp -->
-    <meta property="og:title" content="" />
-    <meta property="og:url" content="" />
-    <meta property="og:image" content="" />
-    <meta property="og:type" content="article" />
-    <meta property="og:description" content="" />
+
 
     <!-- Otras meta tags necesarias para el funcionamiento general de tu página -->
     <!-- ... -->
@@ -34,6 +30,7 @@
 
     <!-- Template Main CSS File -->
     <link href="../assets/css/style.css" rel="stylesheet">
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.8.2.js'></script>
     <!-- <script disable-devtool-auto src='https://cdn.jsdelivr.net/npm/disable-devtool@latest'></script> -->
     <!-- =======================================================
   * Template Name: Techie
@@ -57,6 +54,7 @@
 
 <body style="background: #181A20;">
 
+    <div class="class1"></div>
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top header-inner-pages">
         <div class="container d-flex align-items-center justify-content-between">
@@ -136,19 +134,13 @@
                 </p>
             </div>
         </section>
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script>
-                const metas = Array.from(document.getElementsByTagName('meta'))
-    const metaTitle = metas.find((m) => m.attributes[0].nodeValue === 'og:title')
-    metaTitle.attributes[1].nodeValue = 'a title'
-    const metaUrl = metas.find((m) => m.attributes[0].nodeValue === 'og:url')
-    metaUrl.attributes[1].nodeValue = window.location.href
-    const metaImage = metas.find((m) => m.attributes[0].nodeValue === 'og:image')
-    metaImage.attributes[1].nodeValue = 'a image'
-    const metaDescription = metas.find((m) => m.attributes[0].nodeValue === 'og:description')
-    metaDescription.attributes[1].nodeValue = 'a description'
-
+        <script type='text/javascript'>
+            $(document).ready(function(){
+                var metaMainDescription = $('div.class1').text();
+                $('head').append( '<meta name="description" content="Esto es una prueba">' );
+            });
         </script>
+       
 
 
 
