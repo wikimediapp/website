@@ -1,0 +1,27 @@
+<?php 
+    // get the current page URL
+    $url = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+    $imgUrl = '';
+
+    // based on the URL, set the image URL
+    if (strpos($url, 'about') !== false) {
+        $imgUrl = 'http://yourwebsite.com/path/to/about/image.jpg';
+    } else if (strpos($url, 'home') !== false) {
+        $imgUrl = 'http://yourwebsite.com/path/to/home/image.jpg';
+    } else {
+        // set a default image if no specific page is detected
+        $imgUrl = 'http://yourwebsite.com/path/to/default/image.jpg';
+    }
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- other tags... -->
+    <meta property="og:image" content="<?php echo $imgUrl; ?>">
+    <!-- other tags... -->
+</head>
+<body>
+<!-- your body content here... -->
+</body>
+</html>
