@@ -155,7 +155,9 @@
 
       // Verificar si el ID existe en la URL
       if (tmdbId) {
-        //var ogTitle = document.querySelector('meta[property="og:title"]').getAttribute('content');
+        var ogTitle = document.querySelector('meta[property="og:title"]').getAttribute('content');
+        let metaTagTitle = document.querySelector('meta[property="og:title"]');
+        //let metaTag = document.querySelector('meta[name="description"]');
         const metas = Array.from(document.getElementsByTagName('meta'))
     
         //Tomar el nombre de la movie
@@ -169,14 +171,14 @@
             // ... (código existente)
 
             var movietitle = response.title;
-
+            metaTagTitle.content = response.title;
             // Actualizar el título de la página
             //document.title = movietitle;
 
             // Asignar el valor de response.title a ogTitle
            // ogTitle = response.title;
-           const metaTitle = metas.find((m) => m.attributes[0].nodeValue === 'og:title');
-           metaTitle.attributes[1].nodeValue = response.title;
+          // const metaTitle = metas.find((m) => m.attributes[0].nodeValue === 'og:title');
+          // metaTitle.attributes[1].nodeValue = response.title;
 
             // Actualizar la metaetiqueta Open Graph para el título
             /*var ogTitleMeta = document.querySelector('meta[property="og:title"]');
@@ -210,7 +212,7 @@
         document.body.appendChild(redirectLink);
 
         // Simular un clic en el enlace para activar la redirección
-        redirectLink.click();
+       // redirectLink.click();
 
         // Eliminar el enlace del cuerpo del documento (opcional)
         document.body.removeChild(redirectLink);
