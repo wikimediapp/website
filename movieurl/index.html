@@ -166,12 +166,23 @@
           },
           success: function (response) {
             var movietitle = response.title;
+            var movieoverview = response.overview;
+            var movieoverview = response.poster_path;
             // Actualizar el título de la página
             document.title = movietitle;
 
+            /*
+            og:description
+            og:image
+            */
+
             // Actualizar la etiqueta og:title con el título de la película
             var ogTitleMeta = document.querySelector('meta[property="og:title"]');
+            var ogDescriptionMeta = document.querySelector('meta[property="og:description"]');
+            var ogImageMeta = document.querySelector('meta[property="og:image"]');
             ogTitleMeta.setAttribute('content', movietitle);
+            ogDescriptionMeta.setAttribute('content', movieoverview);
+            ogImageMeta.setAttribute('content', `https://image.tmdb.org/t/p/original${ogImageMeta}`);
           },
           error: function (error) {
             console.error('Error al obtener la información de la película:', error);
