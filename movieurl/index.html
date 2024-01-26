@@ -167,7 +167,7 @@
           success: function (response) {
             var movietitle = response.title;
             var movieoverview = response.overview;
-            var movieoverview = response.poster_path;
+            var movieimage = response.poster_path;
             // Actualizar el título de la página
             document.title = movietitle;
 
@@ -182,7 +182,7 @@
             var ogImageMeta = document.querySelector('meta[property="og:image"]');
             ogTitleMeta.setAttribute('content', movietitle);
             ogDescriptionMeta.setAttribute('content', movieoverview);
-            ogImageMeta.setAttribute('content', `https://image.tmdb.org/t/p/original${ogImageMeta}`);
+            ogImageMeta.setAttribute('content', `https://image.tmdb.org/t/p/original${movieimage}`);
           },
           error: function (error) {
             console.error('Error al obtener la información de la película:', error);
