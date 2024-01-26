@@ -143,65 +143,26 @@
       var urlParams = new URLSearchParams(window.location.search);
       var tmdbId = urlParams.get('tmdbid');
 
-      // document.addEventListener('DOMContentLoaded', function () {
-      // Obtener el valor de og:title
-
-      // });
-
-      //document.addEventListener('DOMContentLoaded', function () {
-        // Obtener el valor de og:url
-        //var ogURrl = document.querySelector('meta[property="og:url"]').getAttribute('content');
-      //});
-
       // Verificar si el ID existe en la URL
       if (tmdbId) {
-        var ogTitle = document.querySelector('meta[property="og:title"]').getAttribute('content');
-        let metaTagTitle = document.querySelector('meta[property="og:title"]');
-        //let metaTag = document.querySelector('meta[name="description"]');
-        const metas = Array.from(document.getElementsByTagName('meta'))
-    
-        //Tomar el nombre de la movie
         $.ajax({
           url: 'https://api.themoviedb.org/3/movie/' + tmdbId,
           data: {
             api_key: '01a93e893567126dc2244b4eee9e65e6' // Reemplaza 'TU_API_KEY' con tu propia clave de API de TMDB
           },
           success: function (response) {
-            // Mostrar la información de la película en el HTML
-            // ... (código existente)
-
             var movietitle = response.title;
-            metaTagTitle.content = "tiene q servir";
             // Actualizar el título de la página
-            //document.title = movietitle;
+            document.title = movietitle;
 
-            // Asignar el valor de response.title a ogTitle
-           // ogTitle = response.title;
-          // const metaTitle = metas.find((m) => m.attributes[0].nodeValue === 'og:title');
-          // metaTitle.attributes[1].nodeValue = response.title;
-
-            // Actualizar la metaetiqueta Open Graph para el título
-            /*var ogTitleMeta = document.querySelector('meta[property="og:title"]');
-            if (ogTitleMeta) {
-              ogTitleMeta.setAttribute('content', ogTitle);
-            } else {
-              // Si no existe la metaetiqueta, puedes crearla y agregarla al head
-              var newOgTitleMeta = document.createElement('meta');
-              newOgTitleMeta.setAttribute('property', 'og:title');
-              newOgTitleMeta.setAttribute('content', ogTitle);
-              document.head.appendChild(newOgTitleMeta);
-            }*/
-
-            // Mostrar el valor de ogTitle en la consola
-            console.log('metaTitle:', metaTitle);
+            // Actualizar la etiqueta og:title con el título de la película
+            var ogTitleMeta = document.querySelector('meta[property="og:title"]');
+            ogTitleMeta.setAttribute('content', movietitle);
           },
           error: function (error) {
             console.error('Error al obtener la información de la película:', error);
           }
         });
-
-
-
 
         // Construir la URL de redirección con el protocolo adecuado
         var redirectUrl = 'app://open.wikimedia/movie/' + tmdbId + '#Intent;scheme=https;package=com.phantomsolutions.wikimedia;end';
@@ -212,7 +173,7 @@
         document.body.appendChild(redirectLink);
 
         // Simular un clic en el enlace para activar la redirección
-       // redirectLink.click();
+        redirectLink.click();
 
         // Eliminar el enlace del cuerpo del documento (opcional)
         document.body.removeChild(redirectLink);
