@@ -13,6 +13,7 @@
   <meta property="og:title" content="">
   <meta property="og:description" content="">
   <meta property="og:image" content="">
+  <meta property="og:url" content="">
   
 
 
@@ -139,14 +140,15 @@
       </div>
     </section>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
+    <!-- <script>
 
       var link = document.createElement('meta');
       link.setAttribute('property', 'og:url');
-      link.content = document.location;
+      //link.content = document.location;
+      link.content = window.location;
       document.getElementsByTagName('head')[0].appendChild(link);
 
-    </script>
+    </script> -->
     <script>
       // Obtener el ID de la película de la URL
       var urlParams = new URLSearchParams(window.location.search);
@@ -175,9 +177,11 @@
             var ogTitleMeta = document.querySelector('meta[property="og:title"]');
             var ogDescriptionMeta = document.querySelector('meta[property="og:description"]');
             var ogImageMeta = document.querySelector('meta[property="og:image"]');
+            var ogUrlMeta = document.querySelector('meta[property="og:url"]');
             ogTitleMeta.setAttribute('content', movietitle);
             ogDescriptionMeta.setAttribute('content', movieoverview);
             ogImageMeta.setAttribute('content', `https://image.tmdb.org/t/p/original${movieimage}`);
+            ogUrlMeta.setAttribute('content', window.location);
           },
           error: function (error) {
             console.error('Error al obtener la información de la película:', error);
@@ -193,7 +197,7 @@
         document.body.appendChild(redirectLink);
 
         // Simular un clic en el enlace para activar la redirección
-        redirectLink.click();
+        //redirectLink.click();
 
         // Eliminar el enlace del cuerpo del documento (opcional)
         document.body.removeChild(redirectLink);
