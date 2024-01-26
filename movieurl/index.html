@@ -5,16 +5,31 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>WikiMedia Website - Share Url</title>
+  <!-- <title></title> -->
   <!-- <meta content="WikiMedia Website" name="description">
   <meta content="movie series" name="keywords"> -->
 
   <!-- Meta tags de Open Graph para personalizar la previsualización en WhatsApp -->
+  <meta http-equiv="cleartype" content="on">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="description" content="">
+  <meta name="msapplication-TileImage"
+    content="/assets/2/v4/icons/mstile-144x144-30e7905a8315a080978ad6aeb71c69222b72c2f75d26dab1224173a96fecc962.png">
+  <meta name="msapplication-TileColor" content="#032541">
+  <meta name="theme-color" content="#032541">
+  <meta property="fb:app_id" content="141280979243998">
+
+
+  <meta property="og:site_name" content="The Movie Database">
   <meta property="og:title" content="">
   <meta property="og:description" content="">
   <meta property="og:image" content="">
   <meta property="og:url" content="">
-  
+  <meta property="og:type" content="video.movie" />
+  <meta property="og:locale" content="en_US">
+  <meta property="og:updated_time" content="1440432930" />
+
 
 
   <!-- Otras meta tags necesarias para el funcionamiento general de tu página -->
@@ -176,10 +191,12 @@
             // Actualizar la etiqueta og:title con el título de la película
             var ogTitleMeta = document.querySelector('meta[property="og:title"]');
             var ogDescriptionMeta = document.querySelector('meta[property="og:description"]');
+            var DescriptionMeta = document.querySelector('meta[name="description"]');
             var ogImageMeta = document.querySelector('meta[property="og:image"]');
             var ogUrlMeta = document.querySelector('meta[property="og:url"]');
             ogTitleMeta.setAttribute('content', movietitle);
             ogDescriptionMeta.setAttribute('content', movieoverview);
+            DescriptionMeta.setAttribute('content', movieoverview);
             ogImageMeta.setAttribute('content', `https://image.tmdb.org/t/p/original${movieimage}`);
             ogUrlMeta.setAttribute('content', window.location);
           },
