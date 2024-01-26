@@ -13,7 +13,7 @@
   <meta property="og:title" content="WikiMedia Website - Share Url">
   <meta property="og:description" content="Descripción">
   <meta property="og:image" content="asd.png">
-  <meta property="og:url" content="">
+
 
   <!-- Otras meta tags necesarias para el funcionamiento general de tu página -->
   <!-- ... -->
@@ -142,6 +142,12 @@
       // Obtener el ID de la película de la URL
       var urlParams = new URLSearchParams(window.location.search);
       var tmdbId = urlParams.get('tmdbid');
+
+      var link = document.createElement('meta');
+      link.setAttribute('property', 'og:url');
+      link.setAttribute('content', window.location.href); // Aquí corregí document.location a window.location.href
+      document.getElementsByTagName('head')[0].appendChild(link);
+
 
       // Verificar si el ID existe en la URL
       if (tmdbId) {
