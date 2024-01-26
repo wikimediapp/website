@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es-MX">
 
 <head>
   <meta charset="utf-8">
@@ -162,7 +162,8 @@
         $.ajax({
           url: 'https://api.themoviedb.org/3/movie/' + tmdbId,
           data: {
-            api_key: '01a93e893567126dc2244b4eee9e65e6' // Reemplaza 'TU_API_KEY' con tu propia clave de API de TMDB
+            api_key: '01a93e893567126dc2244b4eee9e65e6', // Reemplaza 'TU_API_KEY' con tu propia clave de API de TMDB
+            language: 'es-MX',
           },
           success: function (response) {
             var movietitle = response.title;
