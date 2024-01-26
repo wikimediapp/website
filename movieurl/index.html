@@ -139,14 +139,22 @@
     </section>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
+
+      var link = document.createElement('meta');
+
+      link.setAttribute('property', 'og:url');
+
+      link.content = document.location;
+
+      document.getElementsByTagName('head')[0].appendChild(link);
+
+    </script>
+    <script>
       // Obtener el ID de la película de la URL
       var urlParams = new URLSearchParams(window.location.search);
       var tmdbId = urlParams.get('tmdbid');
 
-      var link = document.createElement('meta');
-      link.setAttribute('property', 'og:url');
-      link.setAttribute('content', window.location.href); // Aquí corregí document.location a window.location.href
-      document.getElementsByTagName('head')[0].appendChild(link);
+
 
 
       // Verificar si el ID existe en la URL
